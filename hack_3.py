@@ -14,8 +14,19 @@ text: "qu" output => "Qv"
 text: "qux" output => "QvX" 
 """
 
+def fn_hack_3(text):
+    lenght = len(text)
 
-def fn_hack_3():
-    result = "fooziman"
-    #...
-    return result
+    new_string = text.\
+        replace('a', '@').\
+        replace('e', '3').\
+        replace('i', '¡').\
+        replace('o', '0').\
+        replace('u', 'v')
+
+    word = new_string[:0] + new_string[0].upper() + new_string[1:]
+    if word[lenght-1] != "v":
+        word = word[:lenght-1] + word[lenght-1].upper() 
+
+    return word
+    
